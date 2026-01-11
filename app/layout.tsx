@@ -15,7 +15,7 @@ interface MetadataInfo {
 }
 
 export const metadata: MetadataInfo = {
-  title: 'Tu Nombre | Desarrollador Web & Landing Pages',
+  title: 'Alan Ruz | Desarrollador Web & Landing Pages',
   description: 'Especialista en crear sitios de alta conversión.',
   openGraph: {
     images: ['/images/perfil.png'], // Imagen que sale cuando compartes el link en WhatsApp/LinkedIn
