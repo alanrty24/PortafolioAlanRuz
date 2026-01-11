@@ -1,26 +1,55 @@
 @import "tailwindcss";
+@import "@radix-ui/themes/styles.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* * Variables */
+  --color-primary: #E9F4FF;
+  --color-secundary: #002A83;
+  --color-tertiary: #007BFF;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --text-sm: .875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --header-h: 72px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --react-color: #61DAFB;
+  --javascript-color: #F7DF1E;
+  --tailwind-color: #06B6D4;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply max-w-7/12 min-w-screen mx-auto bg-(--color-primary) box-content overflow-x-hidden;
 }
+
+section{
+  margin-block: 2rem;
+}
+
+/* section:not(:first-child) {
+   view-timeline-name: --section;
+   view-timeline-axis: block;
+   transition: all .5s linear; 
+   
+   animation-timeline: --section;
+   animation-name: show;
+   animation-range: entry 25% cover 35%;
+   animation-fill-mode: both;
+}
+
+@keyframes show {
+  from{
+    opacity: 0;
+    scale: 25%;
+  }
+  
+  to{
+    opacity: 1;
+    scale: 100%;
+  }
+} */
