@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   HiChatAlt,
   HiCube,
@@ -17,7 +18,7 @@ const Foot = () => {
     <>
       <footer className="flex flex-col items-center gap-4 bg-(--color-secundary) p-4">
         <h3 className="text-(--color-primary) text-xl md:text-2xl lg:text-3xl">&copy; Mi portafolio 2025</h3>
-        <ul className="flex flex-wrap gap-4 p-2 text-black transition-all duration-500 justify-center">
+        <ul className="z-10 flex flex-wrap gap-4 p-2 text-black transition-all duration-500 justify-center">
           {seccions.map((seccion) => {
             return (
               <li
@@ -26,12 +27,12 @@ const Foot = () => {
               >
                 <div className="hidden md:flex md:items-center md:gap-2">
                   <seccion.icon />
-                  <a href={seccion.href} className="">
+                  <Link href={seccion.href} className="">
                     {seccion.name}
-                  </a>
+                  </Link>
                 </div>
                 <div className="md:hidden">
-                  <a href={seccion.href} className="w-full"><seccion.icon /></a>
+                  <Link href={seccion.href} className="w-full"><seccion.icon /></Link>
                 </div>
               </li>
             );

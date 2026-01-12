@@ -96,7 +96,7 @@ const ContactForm: React.FC = () => {
         <div className="absolute left-2 flex items-center justify-center rounded-full h-10 w-10 p-2 bg-(--color-secundary) text-white group-hover:bg-white group-hover:text-(--color-secundary) transition-all duration-500">
           <HiArrowRight className="animate-move-right" />
         </div>
-        <span className=" text-black text-end md:text-center md:text-base group-hover:text-white w-full">
+        <span className=" text-black text-end md:text-end lg:text-center md:text-base group-hover:text-white w-full">
           Enviar
         </span>
       </Button>
