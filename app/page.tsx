@@ -1,12 +1,12 @@
-import ContactMe from "@/components/ContactMe";
-import Expirence from "@/components/Expirence";
-import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
+import ContactMe from "@/sections/ContactMe";
+import Expirence from "@/sections/Expirence";
+import Hero from "@/sections/Hero";
+import Projects from "@/sections/Projects";
 
 export default function Home() {
   return (
     <>
-    <main className="p-4  bg-(--color-primary) md:px-20 lg:px-60">
+    <main className="bg-(--color-primary) w-full mx-auto">
       <Hero />
       <Expirence />
       <Projects />

@@ -1,9 +1,9 @@
 import { Theme } from "@radix-ui/themes";
 import { montserrat } from "./fonts";
 import "./globals.css";
-import Nav from "@/components/sections/Nav";
-import Footer from "@/components/sections/Footer";
-import { AOSInitializer } from "@/components/AOSInitializer";
+import Nav from "@/sections/Nav";
+import Footer from "@/sections/Footer";
+import { AOSInitializer } from "@/sections/AOSInitializer";
 import AlertProvider from "@/context/AlertProvider";
 
 interface MetadataInfo {

@@ -1,7 +1,7 @@
 import React from "react";
-import ContactDesc from "./ui/ContactDesc";
-import ContactForm from "./forms/ContactForm";
-import Subtitle from "./ui/Subtitle";
+import ContactDesc from "@/components/ui/ContactDesc";
+import ContactForm from "@/components/forms/ContactForm";
+import Subtitle from "@/components/ui/Subtitle";
 import { bebasNeue } from "@/app/fonts";
 import { FaPerson } from "react-icons/fa6";
 
