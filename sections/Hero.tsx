@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
                 <LuFolderOpen />Comenzar Proyecto
               </a>
               <a
-                href="/docs/Currículum Vitae Alan Ruz 2025.pdf"
+                href="/docs/Currículum Vitae Alan Ruz 2026.pdf"
                 download="Currículum_AlanRuz.pdf"
                 className="inline-flex items-center gap-3 bg-white border border-gray-200 text-black px-6 py-3 rounded-full shadow-sm hover:bg-gray-100"
               >

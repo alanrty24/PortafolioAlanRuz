@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
     <>
       <div className="min-h-auto relative bg-(--color-primary)">
         {/* Mobile Navbar */}
-        <div className={`fixed inset-0 lg:hidden ${isOpen ? 'z-10' : 'z-0'}`}>
+        <div className={`fixed inset-0 lg:hidden ${isOpen ? 'z-10' : 'z-0 -translate-x-full'}`}>
           <div
             className={`fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity duration-500 ease-in-out ${
               isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
