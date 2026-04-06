@@ -25,7 +25,7 @@ const ContactList: ContactDescProps[] = [
 const ContactDesc: React.FC = () => {
   return (
     <article className="flex flex-col gap-4 flex-1">
-      <h3 className={`text-xl font-semibold ${bebasNeue.className}`}>
+      <h3 className={`text-xl font-semibold text-(--color-tertiary) ${bebasNeue.className}`}>
         Estamos aqui para ayudarte
       </h3>
       <h3 className="text-4xl font-bold w-full lg:text-6xl">

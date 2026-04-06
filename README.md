@@ -1,102 +1,110 @@
-﻿# Portafolio  Alan Ruz
+﻿# Portafolio de Alan Ruz
 
-Portafolio personal construido con Next.js, TypeScript y Tailwind CSS. Muestra proyectos, experiencia profesional y permite contacto a través de un formulario que envía correos usando Resend.
+Portafolio personal construido con Next.js 16 (App Router), TypeScript y Tailwind CSS 4.
 
-## Vista rápida
-- Sitio construido con el App Router de Next.js.
-- Formulario de contacto con validación (`react-hook-form`) y envío server-side mediante Resend.
-- Animaciones con AOS aplicadas en cliente para evitar problemas de hidratación.
-- Sistema de alertas con SweetAlert2.
+Incluye:
+- Secciones de presentación, experiencia, proyectos y contacto.
+- Datos centralizados en `lib/data.ts`.
+- Formulario de contacto conectado a Resend (`/api/send`).
+- Animaciones con AOS y UI responsive.
 
-## Características
-- Secciones: Hero, Experiencia, Proyectos, Contacto.
-- Formulario funcional que envía un email al propietario.
-- Responsive y optimizado con Tailwind CSS.
-
-## Tecnologías
-- Next.js (App Router)
+## Stack
+- Next.js 16.1.1
+- React 19
 - TypeScript
-- React
-- Tailwind CSS
-- react-hook-form
-- Resend (librería para envío de emails)
-- sweetalert2
-- AOS
+- Tailwind CSS 4
+- React Hook Form
+- Resend
+- React Icons
+- SweetAlert2
 
-## Estructura relevante
-- `app/`  rutas, layout y páginas.
-- `components/`  componentes reutilizables (Hero, Projects, ContactForm, etc.).
-- `components/forms/ContactForm.tsx`  formulario cliente.
-- `app/api/send/route.tsx`  endpoint server para enviar correos.
-- `context/AlertProvider.tsx`  proveedor de alertas.
+## Estructura del proyecto
+```text
+app/
+	api/send/route.ts          # Endpoint para envío de correo
+	layout.tsx                 # Layout global
+	page.tsx                   # Página principal
 
-## Requisitos
-- Node.js >= 16
-- pnpm (recomendado) o npm/yarn
+sections/
+	Hero.tsx
+	Expirence.tsx
+	Projects.tsx
+	ContactMe.tsx
+	Footer.tsx
+	Nav.tsx
 
-## Instalación (local)
-1. Clona el repositorio:
+components/
+	ui/
+		DescProject.tsx          # Renderiza tarjetas de proyectos
+		Timeline.tsx
+	forms/
+		ContactForm.tsx
 
-```bash
-git clone <repo-url>
-cd my-portafolio-next
+lib/
+	data.ts                    # Data centralizada (nav, experiencia, proyectos)
 ```
 
-2. Instala dependencias:
+## Scripts
+```bash
+pnpm dev
+pnpm build
+pnpm start
+pnpm lint
+pnpm email:dev
+```
 
+## Instalación local
 ```bash
 pnpm install
-```
-
-3. Añade variables de entorno en `.env.local` (ver más abajo).
-
-4. Levanta el servidor de desarrollo:
-
-```bash
 pnpm dev
 ```
 
-Abre `http://localhost:3000`.
+App disponible en `http://localhost:3000`.
 
 ## Variables de entorno
-Crea `.env.local` con al menos las siguientes variables:
+Crea un archivo `.env.local`:
 
 ```env
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 RESEND_API_KEY=tu_api_key_de_resend
 ```
 
-- `RESEND_API_KEY`: clave privada para la API de Resend (usar solo en servidor).
+## Data centralizada (`lib/data.ts`)
+Este archivo centraliza la data de navegación, experiencia y proyectos.
 
-## Uso del formulario de contacto
-- El componente `ContactForm` hace POST a `/api/send` con el payload `{ name, email, message }`.
-- El endpoint `app/api/send/route.tsx` usa la librería `resend` para enviar el email y renderiza `EmailTemplate` como JSX.
+### `projectItems`
+Cada proyecto soporta campos como:
+- `name`, `titulo`, `description`
+- `liveUrl`, `codeUrl`
+- `category`, `role`, `year`, `status`, `previewTone`
+- `techStack`
+- `urlImage` (opcional)
 
-## Despliegue
-- Recomendado: Vercel. Conecta el repo y añade `RESEND_API_KEY` en Environment Variables.
+Comportamiento de `urlImage`:
+- Si existe `urlImage`, se renderiza preview real del proyecto.
+- Si no existe, se usa el mock visual de fallback.
 
-Pasos generales:
+Recomendación para `urlImage`:
+- Usar rutas locales dentro de `public/images`, por ejemplo:
+	`/images/torque-maximo-rr.png`
 
-```bash
-pnpm build
-pnpm start
-```
+## Flujo de contacto
+1. `ContactForm` envía `POST` a `/api/send`.
+2. `app/api/send/route.ts` valida y envía email con Resend.
+3. Se renderiza plantilla de email desde `emails/EmailTemplate.tsx`.
 
-## Solución de problemas comunes
-- Error de hidratación: revisar componentes que usan valores dinámicos (`new Date()`, `Math.random()`) o atributos que difieren en SSR/CSR (por ejemplo `data-aos`). Se corrigió aplicando el atributo `data-aos` solo después del montaje en cliente.
-- Error 500 en `/api/send`: comprobar que `RESEND_API_KEY` esté presente y que la forma del payload coincida. Revisar logs del servidor para el stack trace.
-- `useAlert()` retorna `undefined`: asegurarse de que `AlertProvider` envuelva la app (`app/layout.tsx`).
+## Deploy
+Recomendado: Vercel.
 
-## Buenas prácticas
-- Mantén las claves privadas en el proveedor de despliegue.
-- Revisa la consola del servidor ante errores 500 y añade logs en `catch` para facilitar diagnóstico.
+Pasos:
+1. Conectar repositorio.
+2. Configurar variables de entorno (`RESEND_API_KEY`, etc.).
+3. Deploy automático en push.
 
-## Contribuciones
-Si quieres mejorar el proyecto, abre un issue o PR describiendo claramente los cambios.
+## Notas
+- El proyecto usa componentes de servidor por defecto y componentes cliente donde hay interacción.
+- Si cambias anchors de sección (`#init`, `#experience`, etc.), actualiza también `seccions` en `lib/data.ts`.
 
 ## Contacto
-Alan Ruz  alanruz245@gmail.com
-
----
-
-¿Quieres que añada badges (Vercel, dependabot) o instrucciones específicas para Vercel/GitHub Actions?
+- Autor: Alan Ruz
+- Email: alanruz245@gmail.com
